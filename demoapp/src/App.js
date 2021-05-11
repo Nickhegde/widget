@@ -7,7 +7,7 @@ function App() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (!isMounted) {
+    if (!isMounted && window.ReactCounter) {
       window.ReactCounter.mount();
       setIsMounted(false);
     } else return;
