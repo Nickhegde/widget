@@ -33,12 +33,21 @@ module.exports = {
         use: ["babel-loader"],
       },
       {
-        test: /\.(css|scss)$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.scss/,
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
       {
-        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        test: /\.css/,
+        use: ["style-loader", "css-loader"],
+      },
+
+      {
+        test: /\.(jpg|jpeg|png|gif|mp3)$/,
         use: ["file-loader"],
+      },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack", "url-loader"],
       },
     ],
   },

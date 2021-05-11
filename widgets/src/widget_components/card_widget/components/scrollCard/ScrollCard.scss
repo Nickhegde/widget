@@ -1,0 +1,17 @@
+.scroll-card-container {
+  margin-top: 10px;
+  .scroll-card-row-wrapper {
+    max-width: 320px;
+    margin: auto;
+    display: flex;
+    overflow-x: auto;
+    margin-top: 10px;
+    .scroll-card-wrapper {
+      margin-right: 15px;
+      cursor: pointer;
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+}

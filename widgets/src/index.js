@@ -1,18 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider, useDispatch } from "react-redux";
-import store from "./widget_components/card_widget/card_store";
-import { CardContainer, FeedbackContainer } from "./widget_components";
+import { CardWidget, FeedbackWidget } from "./widget_components";
+
+import "./App.scss";
 
 const HelloWorld = () => {
   return (
-    <Provider store={store}>
-      <div className="widget-container">
-        <h1>Hello World</h1>
-        <CardContainer />
-        <FeedbackContainer />
-      </div>
-    </Provider>
+    <div className="widget-container">
+      <CardWidget />
+      <FeedbackWidget />
+    </div>
   );
 };
 

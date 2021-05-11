@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-export default function FeedbackContainer() {
+export default function FeedbackWidget() {
   return <div className="contextual-card-container">Feedback Card</div>;
 }
 
@@ -9,7 +9,7 @@ window.ReactCounter = {
   mount: () => {
     if (!document.getElementById("show-card-widget")) return null;
     ReactDOM.render(
-      <FeedbackContainer />,
+      <FeedbackWidget />,
       document.getElementById("show-feedback-widget")
     );
   },

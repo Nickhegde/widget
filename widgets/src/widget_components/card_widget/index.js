@@ -1,23 +1,51 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useReducer, useState } from "react";
 import ReactDOM from "react-dom";
 
-import { fetchCards } from "./actions/index";
+import { INITIAL_STATE } from "./store/initialState";
+import cardReducer from "./store/card_reducer";
+import { getCards } from "./services";
+import {
+  BigCard,
+  ImageCard,
+  ScrollCard,
+  SmallCardWithArrow,
+  SmallCardScrollable,
+  SmallCardNonScrollable,
+} from "./components";
+import { CardContext } from "./store/context";
 
-export default function CardContainer() {
-  const dispatch = useDispatch();
+export default function CardWidget() {
+  const [state, dispatch] = useReducer(cardReducer, INITIAL_STATE);
+  const { Provider } = CardContext;
+  const [list, setList] = useState([]);
+
   useEffect(() => {
-    fetchCards(dispatch);
+    getCards(dispatch, onSuccess);
   }, []);
 
-  return <div className="contextual-card-container">Card</div>;
+  const onSuccess = () => {
+    setList(state.CARD_LIST);
+  };
+
+  return (
+    <Provider value={list}>
+      <div className="card-widget-container">
+        <BigCard />
+        <SmallCardWithArrow />
+        <ImageCard />
+        <ScrollCard />
+        <SmallCardScrollable />
+        <SmallCardNonScrollable />
+      </div>
+    </Provider>
+  );
 }
 
 window.ReactCounter = {
   mount: () => {
     if (!document.getElementById("show-card-widget")) return null;
     ReactDOM.render(
-      <CardContainer />,
+      <CardWidget />,
       document.getElementById("show-card-widget")
     );
   },

@@ -1,0 +1,22 @@
+.card-container {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto";
+  .profile-img {
+    width: 30px;
+    height: 30px;
+  }
+  .card-info-wrapper {
+    margin-left: 10px;
+    p {
+      margin: 0px;
+      font-size: 14px;
+    }
+    .card-title {
+      color: #000;
+    }
+    .card-name {
+      color: #1b1b1eb9;
+    }
+  }
+}

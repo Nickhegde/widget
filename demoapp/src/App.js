@@ -1,33 +1,25 @@
-import React, { useEffect } from "react";
-import { Provider } from "react-redux";
-import store from "./store";
+import React, { useEffect, useState } from "react";
+
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
-    setInterval(() => {
+    if (!isMounted) {
       window.ReactCounter.mount();
-    }, 0);
-  }, []);
+      setIsMounted(false);
+    } else return;
+  }, [isMounted]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-        {/* <div id="show-card-widget"></div> */}
-        <div id="root-widget"></div>
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-title">fampay</h1>
+        <img src={logo} className="app-logo" alt="logo" />
       </header>
+      <div id="show-card-widget"></div>
     </div>
   );
 }

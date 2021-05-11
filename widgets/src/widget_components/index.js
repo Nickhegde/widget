@@ -1,4 +1,4 @@
-import CardContainer from "./card_widget";
-import FeedbackContainer from "./feedback_widget";
+import CardWidget from "./card_widget";
+import FeedbackWidget from "./feedback_widget";
 
-export { CardContainer, FeedbackContainer };
+export { CardWidget, FeedbackWidget };

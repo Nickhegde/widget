@@ -1,13 +1,12 @@
-import { CARD } from "./actions/types";
+import { CARD, LOADER } from "./types";
+import { INITIAL_STATE } from "./initialState";
 
-const INITIAL_STATE = {
-  CARD_LIST: [],
-  ERROR: "",
-};
-
-const rootReducer = (state = INITIAL_STATE, action) => {
+const cardReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
+    case LOADER:
+      state.LOADER = !state.LOADER;
+      return state;
     case CARD.SET:
       state.CARD_LIST = [...payload];
       return state;
@@ -22,4 +21,4 @@ const rootReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default rootReducer;
+export default cardReducer;
