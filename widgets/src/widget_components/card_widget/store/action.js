@@ -20,10 +20,11 @@ export const removeCard = (dispatch, index) => {
   });
 };
 
-export const remindCard = (dispatch, index) => {
+export const remindCard = (dispatch, payload, onSuccessHandler) => {
   dispatch({
     type: CARD.REMIND,
-    payload: index,
+    payload: payload,
+    onSuccessHandler: onSuccessHandler,
   });
 };
 

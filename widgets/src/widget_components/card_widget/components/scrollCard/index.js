@@ -5,7 +5,7 @@ import { redirect } from "../../common";
 import "./ScrollCard.scss";
 
 export default function ScrollCard() {
-  const scrollCard = useContext(CardContext).filter(
+  const scrollCard = useContext(CardContext).list.filter(
     (item) => item.design_type === "HC9"
   );
 

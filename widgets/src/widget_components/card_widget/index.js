@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { INITIAL_STATE } from "./store/initialState";
 import cardReducer from "./store/card_reducer";
 import { getCards } from "./services";
+import { remindCard } from "./store/action";
 import {
   BigCard,
   ImageCard,
@@ -16,6 +17,9 @@ import { CardContext } from "./store/context";
 
 export default function CardWidget() {
   const [state, dispatch] = useReducer(cardReducer, INITIAL_STATE);
+  const [blackList, setBlackList] = useState(
+    JSON.parse(localStorage.getItem("blackList")) || []
+  );
   const { Provider } = CardContext;
   const [list, setList] = useState([]);
 
@@ -24,11 +28,28 @@ export default function CardWidget() {
   }, []);
 
   const onSuccess = () => {
-    setList(state.CARD_LIST);
+    setList([...state.CARD_LIST]);
+  };
+
+  const onRemindLater = (payload) => {
+    remindCard(dispatch, payload, onSuccess);
+  };
+
+  const onRemove = (payload) => {
+    let blackListIds = [...blackList];
+    blackListIds.push(payload);
+    localStorage.setItem("blackList", JSON.stringify(blackListIds));
+    setBlackList(blackListIds);
   };
 
   return (
-    <Provider value={list}>
+    <Provider
+      value={{
+        list: list,
+        onRemindLater: onRemindLater,
+        blackList: blackList,
+        onRemove: onRemove,
+      }}>
       <div className="card-widget-container">
         <BigCard />
         <SmallCardWithArrow />

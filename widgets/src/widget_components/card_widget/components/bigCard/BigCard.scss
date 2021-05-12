@@ -2,40 +2,91 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  .big-card-wrapper {
+  :only-child {
+    max-width: 330px;
+    overflow: hidden;
     border-radius: 12px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 220px;
-    padding-left: 26px;
-    padding-right: 26px;
-    padding-bottom: 20px;
-    font-family: "Roboto";
-    .big-card-title {
-      padding-top: 116px;
-      mix-blend-mode: difference;
-      font-size: 30px;
-      margin-bottom: 0px;
+    display: flex;
+    background-color: #ffff;
+    .action-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      margin-left: -100px;
+      transition: margin-left 1s ease-in;
+      &.show {
+        margin-left: 0px;
+      }
+
+      .reminder-btn,
+      .close-btn {
+        background: #f7f6f3;
+        width: 72px;
+        height: 60px;
+        margin: 20px 0px 20px 20px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        svg {
+          margin-bottom: 2px;
+          background-color: #f7f6f3;
+        }
+        .btn-label {
+          background-color: #f7f6f3;
+          font-family: "Roboto";
+          font-size: 10px;
+          margin: 0;
+        }
+      }
     }
-    .big-card-name {
-      color: #ffff;
-      font-size: 30px;
-      text-transform: lowercase;
-    }
-    .big-card-description {
-      color: #ffff;
-      margin-top: 30px;
-      font-size: 12px;
-    }
-    .big-card-btn {
-      text-decoration: none;
+    .big-card-wrapper {
       display: block;
-      margin-top: 30px;
-      border-radius: 6px;
-      width: 128px;
-      text-align: center;
-      padding-top: 14px;
-      padding-bottom: 14px;
+      border-radius: 12px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 220px;
+      padding-left: 26px;
+      padding-right: 26px;
+      padding-bottom: 20px;
+      font-family: "Roboto";
+      cursor: pointer;
+      overflow-x: hidden;
+      min-width: 320px;
+      transition: margin-left 1s ease-out;
+      &.slide-out {
+        margin-left: 40px;
+      }
+      .big-card-title {
+        padding-top: 130px;
+        mix-blend-mode: difference;
+        font-size: 26px;
+        margin-bottom: 0px;
+      }
+      .big-card-name {
+        color: #ffff;
+        font-size: 26px;
+        text-transform: lowercase;
+      }
+      .big-card-description {
+        color: #ffff;
+        margin-top: 30px;
+        font-size: 12px;
+      }
+      .big-card-btn {
+        text-decoration: none;
+        display: block;
+        margin-top: 30px;
+        border-radius: 6px;
+        width: 128px;
+        text-align: center;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
     }
   }
 }
