@@ -18,13 +18,21 @@ Here are the steps to be followed after cloning/downloading the repo,
 
 1. Open terminal in widgets folder.
    a. Run the command `npm install`.
+
    b. Run the command `npm run webpack`.
+
    c. Run the command `npm start`.
+
    d. Application will start running at [http://localhost:8080](http://localhost:8080).
-2. In demoApp folder, go to public/index.html file and replace <script src="https://card-widget.netlify. app/card_widget_bundle.js"></script> with <script src="http://localhost:8080/card_widget_bundle.js"><script>
+
+2. In demoApp folder, go to public/index.html file and replace <script src="https://card-widget.netlify.app/card_widget_bundle.js"></script> with <script src="http://localhost:8080/card_widget_bundle.js"><script>
+
 3. Open terminal in demoApp folder.
+
    a. Run the command `npm install`.
+
    b. Run the command `npm start`.
+
    c. Application will start running at [http://localhost:3000](http://localhost:3000).
 
 ## What is happening?
