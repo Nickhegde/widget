@@ -9,8 +9,16 @@
     .scroll-card-wrapper {
       margin-right: 15px;
       cursor: pointer;
-      img {
+      border-radius: 12px;
+      .image-container {
+        border-radius: 12px;
         object-fit: contain;
+      }
+      .image-div-container {
+        border-radius: 12px;
+        background: linear-gradient(335.97deg, #ff8749 3.44%, #454aa6 86.36%);
+        height: 225px;
+        width: 150px;
       }
     }
   }
