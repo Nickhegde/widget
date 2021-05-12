@@ -15,7 +15,7 @@
       align-items: center;
       margin: auto;
       margin-left: -100px;
-      transition: margin-left 1s ease-in;
+      transition: margin-left 1s linear;
       &.show {
         margin-left: 0px;
       }
@@ -58,7 +58,7 @@
       cursor: pointer;
       overflow-x: hidden;
       min-width: 320px;
-      transition: margin-left 1s ease-out;
+      transition: margin-left 1s linear;
       &.slide-out {
         margin-left: 40px;
       }
