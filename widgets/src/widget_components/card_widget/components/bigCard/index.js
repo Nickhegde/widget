@@ -25,8 +25,10 @@ export default function BigCard() {
     });
   }
 
-  const onLongPress = () => {
+  const onLongPress = (e) => {
     if (!longPress) setLongPress(true);
+    e.preventDefault();
+    e.stopPropagation();
     return;
   };
 
@@ -53,9 +55,18 @@ export default function BigCard() {
     bigCardValue.onRemove(payload);
   };
 
+  const onContextMenuClick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  };
+
   if (!bigCard.length) return null;
   return (
-    <div className="big-card-container">
+    <div
+      className="big-card-container"
+      id="big-card"
+      onContextMenu={onContextMenuClick}>
       {bigCard.map((cardObject, mainindex) => {
         const { id, cards } = cardObject;
         return cards.map((card, index) => {
