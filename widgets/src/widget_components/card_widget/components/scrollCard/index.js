@@ -32,7 +32,11 @@ export default function ScrollCard() {
                   onClick={() => {
                     redirect(url);
                   }}>
-                  <img src={image_url}></img>
+                  {image_url ? (
+                    <img className="image-container" src={image_url}></img>
+                  ) : (
+                    <div className="image-div-container"></div>
+                  )}
                 </div>
               );
             })}
