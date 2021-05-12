@@ -5,7 +5,7 @@ import { redirect } from "../../common";
 import "./ImageCard.scss";
 
 export default function ImageCard() {
-  const imageCard = useContext(CardContext).filter(
+  const imageCard = useContext(CardContext).list.filter(
     (item) => item.design_type === "HC5"
   );
 
@@ -28,9 +28,7 @@ export default function ImageCard() {
                   style={{
                     backgroundColor: bg_color,
                   }}
-                  onClick={() => {
-                    redirect(url);
-                  }}>
+                  onClick={() => redirect(url)}>
                   <img src={bg_image.image_url}></img>
                   <div className="image-card-info">{name}</div>
                 </div>

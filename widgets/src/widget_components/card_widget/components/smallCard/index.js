@@ -8,7 +8,7 @@ import Arrow from "../../assets/images/arrow";
 import "./SmallCard.scss";
 
 export function SmallCardWithArrow() {
-  const cardArray = useContext(CardContext).filter(
+  const cardArray = useContext(CardContext).list.filter(
     (item) => item.design_type === "HC6"
   );
 
@@ -36,7 +36,7 @@ export function SmallCardWithArrow() {
 }
 
 export function SmallCardScrollable() {
-  const cardArray = useContext(CardContext).filter(
+  const cardArray = useContext(CardContext).list.filter(
     (item) => item.design_type === "HC1" && item.is_scrollable === false
   );
 
@@ -66,7 +66,7 @@ export function SmallCardScrollable() {
 }
 
 export function SmallCardNonScrollable() {
-  const cardArray = useContext(CardContext).filter(
+  const cardArray = useContext(CardContext).list.filter(
     (item) => item.design_type === "HC6" && item.is_scrollable === false
   );
 
