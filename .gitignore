@@ -15,7 +15,7 @@ demoapp/node_modules
 /build
 
 demoapp/build
-widgets/public/build
+widgets/public
 
 # misc
 .DS_Store
